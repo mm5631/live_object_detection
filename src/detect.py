@@ -1,4 +1,5 @@
 import os
+import logging
 import imutils
 from imutils.video import VideoStream
 from imutils.video import FPS
@@ -14,17 +15,20 @@ SCORE_THRESHOLD = 0.6
 NETWORK_INPUT_SIZE = (300, 300)
 NETWORK_SCALE_FACTOR = 1
 
+logger = logging.getLogger('detectory')
+logging.basicConfig(level=logging.INFO)
+
 # Reading coco labels
 with open(LABELS_PATH, 'rt') as f:
     labels = f.read().rstrip('\n').split('\n')
-print(f'\n[INFO] Available labels: \n{labels}')
+logger.info(f'Available labels: \n{labels}\n')
 COLORS = np.random.uniform(0, 255, size=(len(labels), 3))
 
 # Loading model from file
-print('[INFO] Loading model from tensorflow...')
+logger.info('Loading model from tensorflow...')
 ssd_net = cv2.dnn.readNetFromTensorflow(model=MODEL_PATH, config=CONFIG_PATH)
 # Initiating camera
-print('[INFO] Starting video stream...')
+logger.info('Starting video stream...')
 vs = VideoStream(src=0).start()
 time.sleep(2.0)
 fps = FPS().start()
@@ -82,7 +86,7 @@ while True:
     fps.update()
 
 fps.stop()
-print(f'[INFO] Elapsed time: {fps.elapsed() :.2f}')
-print(f'[INFO] Approx. FPS: {fps.fps():.2f}')
+logger.info(f'\nElapsed time: {fps.elapsed() :.2f}')
+logger.info(f' Approx. FPS: {fps.fps():.2f}')
 cv2.destroyAllWindows()
 vs.stop()
