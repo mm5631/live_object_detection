@@ -15,7 +15,6 @@ NETWORK_INPUT_SIZE = (300, 300)
 NETWORK_SCALE_FACTOR = 1
 
 # Reading coco labels
-labels = None
 with open(LABELS_PATH, 'rt') as f:
     labels = f.read().rstrip('\n').split('\n')
 print(f'\n[INFO] Available labels: \n{labels}')
@@ -24,7 +23,6 @@ COLORS = np.random.uniform(0, 255, size=(len(labels), 3))
 # Loading model from file
 print('[INFO] Loading model from tensorflow...')
 ssd_net = cv2.dnn.readNetFromTensorflow(model=MODEL_PATH, config=CONFIG_PATH)
-
 # Initiating camera
 print('[INFO] Starting video stream...')
 vs = VideoStream(src=0).start()
