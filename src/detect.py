@@ -15,7 +15,7 @@ SCORE_THRESHOLD = 0.4
 NETWORK_INPUT_SIZE = (300, 300)
 NETWORK_SCALE_FACTOR = 1
 
-logger = logging.getLogger('detectory')
+logger = logging.getLogger('detector')
 logging.basicConfig(level=logging.INFO)
 
 # Reading coco labels
