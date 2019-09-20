@@ -11,7 +11,7 @@ ASSETS_PATH = 'assets/'
 MODEL_PATH = os.path.join(ASSETS_PATH, 'frozen_inference_graph.pb')
 CONFIG_PATH = os.path.join(ASSETS_PATH, 'ssd_mobilenet_v2_coco_2018_03_29.pbtxt')
 LABELS_PATH = os.path.join(ASSETS_PATH, 'labels.txt')
-SCORE_THRESHOLD = 0.4
+SCORE_THRESHOLD = 0.25
 NETWORK_INPUT_SIZE = (300, 300)
 NETWORK_SCALE_FACTOR = 1
 
