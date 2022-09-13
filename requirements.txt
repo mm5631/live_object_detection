@@ -1,5 +1,5 @@
 imutils==0.5.3
 numpy==1.22.0
-opencv-contrib-python==4.1.1.26
+opencv-contrib-python==4.2.0.32
 style==1.1.0
 update==0.0.1
